@@ -3,14 +3,11 @@
   height: $spacing-hard * 5;
   width: 100vw;
   color: $color-light;
-  padding: 0 $spacing-hard + 10px;
+  padding: 5px 30px 0 30px;
   position: absolute;
   box-sizing: border-box;
   z-index: 1;
   top: 0;
   left: 0;
-
-  &__headline {
-    margin-top: $spacing-hard / 4;
-  }
+  border-bottom: 10px solid #fff;
 }

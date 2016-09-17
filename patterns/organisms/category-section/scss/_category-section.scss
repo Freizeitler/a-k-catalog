@@ -4,7 +4,7 @@
   overflow-y: auto;
   padding-bottom: 90px;
   box-sizing: border-box;
-  //padding-top: 135px;
+  padding-top: 130px;
 
   &__headline {
     padding: 5px $spacing-hard;
@@ -23,7 +23,7 @@
     max-height: 0;
   }
 
-  &[data-filter=one]:checked ~ .teaser-section .teaser-section__teaser[data-tag=beginner], &[data-filter=two]:checked ~ .teaser-section .teaser-section__teaser[data-tag=advanced], &[data-filter=three]:checked ~ .teaser-section .teaser-section__teaser[data-tag=profi] {
+  &[data-filter=one]:checked ~ .teaser-section .teaser-section__teaser[data-tag=beginner], &[data-filter=two]:checked ~ .teaser-section .teaser-section__teaser[data-tag=advanced] {
     max-height: 400px;
     opacity: 1;
     margin: $spacing-hard/2 0;
@@ -45,12 +45,6 @@
     border-bottom: 1px solid $color-gray-light;
     transition: all 0.3s cubic-bezier(0.175,  0.885, 0.320, 1.275);
     max-width: 1200px;
-
-    @media (min-width: $breakpoint-medium) {
-      border: 1px solid $color-gray-light;
-      padding: $spacing-hard;
-      border-radius: 96px 0 0 96px;
-    }
 
     &[aria-hidden=true] {
 
@@ -103,7 +97,6 @@
 
   dt {
     font-weight: bold;
-    color: darken($color-dark, 10%);
   }
 
   dd {

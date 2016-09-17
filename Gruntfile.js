@@ -209,6 +209,6 @@ module.exports = function(grunt) {
   grunt.registerTask(
       'build',
       'Build this website ... yeaahhh!',
-      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', 'autoprefixer', 'assemble', 'copy:main']
+      [ 'clean:build', 'concat:js', 'uglify:js', 'compass:dist', /*'autoprefixer',*/ 'assemble', 'copy:main']
   );
 };
