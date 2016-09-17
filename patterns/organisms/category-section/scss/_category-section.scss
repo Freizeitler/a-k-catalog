@@ -22,11 +22,12 @@
     max-height: 0;
   }
 
-  &[data-filter=one]:checked ~ .teaser-section .teaser-section__teaser[data-tag=beginner], &[data-filter=two]:checked ~ .teaser-section .teaser-section__teaser[data-tag=advanced], &[data-filter=three]:checked ~ .teaser-section .teaser-section__teaser[data-tag=three] {
+  &[data-filter=one]:checked ~ .teaser-section .teaser-section__teaser[data-tag=beginner], &[data-filter=two]:checked ~ .teaser-section .teaser-section__teaser[data-tag=advanced], &[data-filter=three]:checked ~ .teaser-section .teaser-section__teaser[data-tag=profi] {
     max-height: 400px;
     opacity: 1;
     margin: $spacing-hard/2 0;
     padding: $spacing-hard;
+
   }
 }
 
@@ -48,6 +49,13 @@
       border: 1px solid $color-gray-light;
       padding: $spacing-hard;
       border-radius: 96px 0 0 96px;
+    }
+
+    &[aria-hidden=true] {
+
+      .teaser-section__more-button {
+        display: none;
+      }
     }
   }
 
@@ -87,13 +95,14 @@
 
   &__unit {
     display: inline-block;
-    background-color: $color-gray-light;
+    background-color: rgba(174, 205, 78, 0.15);
     padding: 2px 4px;
     border-radius: 2px;
   }
 
   dt {
     font-weight: bold;
+    color: darken($color-dark, 10%);
   }
 
   dd {

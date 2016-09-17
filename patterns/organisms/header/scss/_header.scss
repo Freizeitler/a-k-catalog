@@ -6,6 +6,9 @@
   padding: 0 $spacing-hard + 10px;
   position: absolute;
   box-sizing: border-box;
+  z-index: 1;
+  top: 0;
+  left: 0;
 
   &__headline {
     margin-top: $spacing-hard / 4;
