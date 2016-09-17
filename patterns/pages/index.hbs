@@ -20,7 +20,8 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
 </div>
 
 <script type="text/javascript">
-  // template enigine
+
+  // template engine
   (function() {
     'use strict';
     var httpRequest;
@@ -44,8 +45,8 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
       if (httpRequest.readyState === XMLHttpRequest.DONE) {
         if (httpRequest.status === 200) {
           var data = JSON.parse(httpRequest.responseText);
+          var dataset;
           var recipes = data.rsp.recipes.recipe;
-          //var ingredientsArray = [];
 
           document.getElementById('jsTeaserSpirituous').innerHTML = '';
           document.getElementById('jsTeaserNonAlc').innerHTML = '';
@@ -56,21 +57,43 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
             for (var i = 0; i < components.length; i++) {
               var comp = components[i]['@attributes'];
               ingredientList += '<span class="teaser-section__unit">' + comp.amount + comp.unit + '</span> ' + comp.name + ', ';
-              //if (ingredientsArray.indexOf(comp.name)==-1) ingredientsArray.push(comp.name);
             }
-            //console.log(ingredientsArray);
             return ingredientList;
+          };
+
+          var insertTemplate = function(dataset, articleTarget, i) {
+            articleTarget.insertAdjacentHTML('beforeend',
+              '<article class="teaser-section__teaser" data-tag="' + dataset.difficulty + '" data-id="' + i + '">' +
+              '<img class="teaser-section__image" width="150" height="150" src="' + dataset.picture + '" alt="" />' +
+              '<div  class="teaser-section__text">' +
+              '<h3>' + dataset.name + '</h3>' +
+              '<dt>Ingredients:</dt>' +
+              '<dd>' + ingredients() + '</dd>' +
+              '<p><strong>Rating;</strong> ' + dataset.rating + ' / 5</p>' +
+              '<input type="checkbox" class="teaser-section__more-button" name="learn-more' + i + '" id="learn-more' +i + '" />' +
+              '<label for="learn-more'+ i + '">Learn more</label>' +
+              '<dl class="teaser-section__more">' +
+              '<dt>Description:</dt>' +
+              '<dd>' + dataset.description + '</dd>' +
+              '<dt>Instruction:</dt>' +
+              '<dd>' + dataset.instructions + '</dd>' +
+              '</dl>' +
+              '</div>' +
+              '</article>'
+            );
           };
 
           for (var i = 0; i < recipes.length; i++) {
             var obj = recipes[i];
             var articleTarget;
-            var difficulty = obj['@attributes'].difficulty || 'no data';
-            var picture = obj.photos.photo['@attributes'].url || 'images/placeholder.svg';
-            var name = obj['@attributes'].name || 'no data';
-            var description = obj['@attributes'].description || '-';
-            var rating = obj['@attributes'].rating || 'no data';
-            var instructions = obj['@attributes'].instruction || '-';
+            dataset = {
+              difficulty: obj['@attributes'].difficulty || 'no data',
+              picture: obj.photos.photo['@attributes'].url || 'images/placeholder.svg',
+              name: obj['@attributes'].name || 'no data',
+              description: obj['@attributes'].description || '-',
+              rating: obj['@attributes'].rating || 'no data',
+              instructions: obj['@attributes'].instruction || '-'
+            };
 
             if (obj['@attributes'].isAlcoholic === '1') {
               articleTarget = document.getElementById('jsTeaserSpirituous');
@@ -78,25 +101,8 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
               articleTarget = document.getElementById('jsTeaserNonAlc');
             }
 
-            articleTarget.insertAdjacentHTML('beforeend',
-              '<article class="teaser-section__teaser" data-tag="' + difficulty + '" data-id="' + i + '">' +
-              '<img class="teaser-section__image" width="150" height="150" src="' + picture + '" alt="" />' +
-              '<div  class="teaser-section__text">' +
-              '<h3>' + name + '</h3>' +
-              '<dt>Ingredients:</dt>' +
-              '<dd>' + ingredients() + '</dd>' +
-              '<p><strong>Rating;</strong> ' + rating + ' / 5</p>' +
-              '<input type="checkbox" class="teaser-section__more-button" name="learn-more' + i + '" id="learn-more' +i + '" />' +
-              '<label for="learn-more'+ i + '">Learn more</label>' +
-              '<dl class="teaser-section__more">' +
-              '<dt>Description:</dt>' +
-              '<dd>' + description + '</dd>' +
-              '<dt>Instruction:</dt>' +
-              '<dd>' + instructions + '</dd>' +
-              '</dl>' +
-              '</div>' +
-              '</article>'
-            );
+            insertTemplate(dataset, articleTarget, i);
+
           }
           targetMessage.classList.add('hide');
 
