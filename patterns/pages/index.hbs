@@ -1,6 +1,6 @@
 ---
 
-title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
+title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock 10K"
 
 ---
 
@@ -21,19 +21,23 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
 
 <script type="text/javascript">
 
-  // template engine
+  /**
+   * Template engine
+   */
   (function() {
     'use strict';
     var httpRequest;
     var targetMessage = document.getElementById('jsMessage');
+    var statusMessage = document.getElementById('jsStatus');
 
-    targetMessage.classList.add('hide');
+    //targetMessage.classList.add('hide');
+    statusMessage.textContent = 'Please wait.';
     function makeRequest(url) {
       httpRequest = new XMLHttpRequest();
 
       if (!httpRequest) {
         targetMessage.classList.remove('hide');
-        document.getElementById('jsStatus').textContent = 'Sorry, I need a connection!';
+        statusMessage.textContent = 'Sorry, I need a connection!';
         return false;
       }
       httpRequest.onreadystatechange = generateContents;
@@ -116,7 +120,9 @@ title: "<span>Welcome&hellip; It's</span> Cocktail O'Clock"
     makeRequest('../data/data-offline.json');
   })();
 
-  // accessibility
+  /**
+   * Acessibility and Keyboard Navigation
+   */
   (function() {
     var section1 = document.getElementById('jsSection1');
     var section2 = document.getElementById('jsSection2');

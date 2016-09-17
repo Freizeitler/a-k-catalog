@@ -16,7 +16,7 @@
 	
 
 <header class="header" role="banner">
-  <h1 class="header__headline"><span>Welcome&hellip; It's</span> Cocktail O'Clock</h1>
+  <h1 class="header__headline"><span>Welcome&hellip; It's</span> Cocktail O'Clock 10K</h1>
 </header>
 
 
@@ -79,19 +79,23 @@ In der Ur-Version brannte der B52 übrigens nicht. Da wurde als obere Schicht de
 
 <script type="text/javascript">
 
-  // template engine
+  /**
+   * Template engine
+   */
   (function() {
     'use strict';
     var httpRequest;
     var targetMessage = document.getElementById('jsMessage');
+    var statusMessage = document.getElementById('jsStatus');
 
-    targetMessage.classList.add('hide');
+    //targetMessage.classList.add('hide');
+    statusMessage.textContent = 'Please wait.';
     function makeRequest(url) {
       httpRequest = new XMLHttpRequest();
 
       if (!httpRequest) {
         targetMessage.classList.remove('hide');
-        document.getElementById('jsStatus').textContent = 'Sorry, I need a connection!';
+        statusMessage.textContent = 'Sorry, I need a connection!';
         return false;
       }
       httpRequest.onreadystatechange = generateContents;
@@ -174,7 +178,9 @@ In der Ur-Version brannte der B52 übrigens nicht. Da wurde als obere Schicht de
     makeRequest('../data/data-offline.json');
   })();
 
-  // accessibility
+  /**
+   * Acessibility and Keyboard Navigation
+   */
   (function() {
     var section1 = document.getElementById('jsSection1');
     var section2 = document.getElementById('jsSection2');
