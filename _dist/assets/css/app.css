@@ -114,45 +114,49 @@ label:hover {
   color: white;
   margin-top: 60px;
   margin-left: 20px;
-  position: relative;
+  position: absolute;
   z-index: 2;
   padding: 10px;
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 3px 3px 0 0;
 }
-/* line 14, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 12, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+.menu-category__last {
+  left: 115px;
+}
+/* line 18, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 .menu-category:nth-of-type(1):checked ~ .main {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-/* line 21, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 25, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 .menu-category:nth-of-type(2):checked ~ .main {
   -webkit-transform: translate3d(-100vw, 0, 0);
           transform: translate3d(-100vw, 0, 0);
 }
-/* line 28, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 32, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 .menu-category:nth-of-type(3):checked ~ .main {
   -webkit-transform: translate3d(-200vw, 0, 0);
           transform: translate3d(-200vw, 0, 0);
 }
-/* line 35, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 39, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 .menu-category:nth-of-type(4):checked ~ .main {
   -webkit-transform: translate3d(-300vw, 0, 0);
           transform: translate3d(-300vw, 0, 0);
 }
 
-/* line 41, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 45, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 input.menu-category {
   position: absolute;
   z-index: -1;
 }
-/* line 47, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 51, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 input.menu-category:checked + label, input.menu-category:focus + label {
   background: white;
   color: #5f9748;
 }
-/* line 55, ../patterns/organisms/menu-category/scss/_menu-category.scss */
+/* line 59, ../patterns/organisms/menu-category/scss/_menu-category.scss */
 input.menu-category:focus + label {
   text-decoration: underline;
 }
@@ -165,25 +169,25 @@ input.menu-category:focus + label {
   padding-bottom: 90px;
   box-sizing: border-box;
 }
-/* line 8, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 9, ../patterns/organisms/category-section/scss/_category-section.scss */
 .category-section__headline {
   padding: 5px 20px;
   background: #aecd4e;
   color: white;
 }
 
-/* line 15, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 16, ../patterns/organisms/category-section/scss/_category-section.scss */
 .menu-category-filter {
   margin: 20px 0 0 20px;
 }
-/* line 18, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 19, ../patterns/organisms/category-section/scss/_category-section.scss */
 .menu-category-filter:checked ~ .teaser-section .teaser-section__teaser {
   opacity: 0;
   margin: 0;
   padding: 0;
   max-height: 0;
 }
-/* line 25, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 26, ../patterns/organisms/category-section/scss/_category-section.scss */
 .menu-category-filter[data-filter=one]:checked ~ .teaser-section .teaser-section__teaser[data-tag=beginner], .menu-category-filter[data-filter=two]:checked ~ .teaser-section .teaser-section__teaser[data-tag=advanced], .menu-category-filter[data-filter=three]:checked ~ .teaser-section .teaser-section__teaser[data-tag=profi] {
   max-height: 400px;
   opacity: 1;
@@ -191,7 +195,7 @@ input.menu-category:focus + label {
   padding: 20px;
 }
 
-/* line 34, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 35, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -202,7 +206,7 @@ input.menu-category:focus + label {
   margin: 20px;
   overflow: hidden;
 }
-/* line 40, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 41, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__teaser {
   margin: 10px 0;
   padding: 20px 0;
@@ -212,22 +216,22 @@ input.menu-category:focus + label {
   max-width: 1200px;
 }
 @media (min-width: 45.25em) {
-  /* line 40, ../patterns/organisms/category-section/scss/_category-section.scss */
+  /* line 41, ../patterns/organisms/category-section/scss/_category-section.scss */
   .teaser-section__teaser {
     border: 1px solid #f4f4f4;
     padding: 20px;
     border-radius: 96px 0 0 96px;
   }
 }
-/* line 56, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 57, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__teaser[aria-hidden=true] .teaser-section__more-button {
   display: none;
 }
-/* line 62, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 63, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__text {
   padding-left: 20px;
 }
-/* line 66, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 67, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__image {
   border-radius: 50%;
   width: 100px;
@@ -237,41 +241,41 @@ input.menu-category:focus + label {
   margin-right: 20px;
 }
 @media (min-width: 45.25em) {
-  /* line 66, ../patterns/organisms/category-section/scss/_category-section.scss */
+  /* line 67, ../patterns/organisms/category-section/scss/_category-section.scss */
   .teaser-section__image {
     width: 150px;
     height: 150px;
   }
 }
-/* line 80, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 81, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__more-button {
   clear: left;
 }
-/* line 83, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 84, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__more-button:checked ~ .teaser-section__more {
   max-height: 400px;
   margin-top: 1em;
 }
-/* line 89, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 90, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__more {
   max-height: 0;
   margin: 0;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-/* line 96, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 97, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section__unit {
   display: inline-block;
   background-color: rgba(174, 205, 78, 0.15);
   padding: 2px 4px;
   border-radius: 2px;
 }
-/* line 103, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 104, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section dt {
   font-weight: bold;
   color: #497438;
 }
-/* line 108, ../patterns/organisms/category-section/scss/_category-section.scss */
+/* line 109, ../patterns/organisms/category-section/scss/_category-section.scss */
 .teaser-section dd {
   margin-left: 0;
   margin-bottom: 1em;
@@ -308,7 +312,7 @@ input.menu-category:focus + label {
 }
 /* line 31, ../patterns/organisms/message/scss/_message.scss */
 .message {
-  margin: 5px 20px;
+  margin: 110px 20px 5px 20px;
   max-height: 60px;
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
